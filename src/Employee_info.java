@@ -781,7 +781,67 @@ public class Employee_info extends javax.swing.JFrame {
     }                                                 
 
     private void txt_search_telephoneKeyReleased(java.awt.event.KeyEvent evt) {                                                 
+       try{
+             
+            String sql = "select * from database where Telephone=?";
+           
+          
+            pst=conn.prepareStatement(sql);
+            pst.setString(1, txt_search_telephone.getText());
+            rs = pst.executeQuery();
+            
+            if(rs.next()){
+            String add1 = rs.getString("Car_Number");
+            txt_car_number.setText(add1);
+            
+            String add2 = rs.getString("Name");
+            txt_name.setText(add2);
+            
+            String add3 = rs.getString("Surname");
+            txt_surname.setText(add3);
+            
+            String add4 = rs.getString("Mobile");
+            txt_mobile.setText(add4);
+            
+            String add5 = rs.getString("Telephone");
+            txt_telephone.setText(add5);
+            
+           String add6 = rs.getString("Address");
+           txt_address.setText(add6);
+           
+           String add7 = rs.getString("Chassis_Number");
+           txt_chassis_number.setText(add7);
+           
+           String add8 = rs.getString("DEC_Code");
+           txt_code.setText(add8);
+           
+           String add9 = rs.getString("DEC_Description");
+           txt_description.setText(add9);
+           
+           String add10 = rs.getString("Next_Service");
+        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+        Date parsed = format.parse(add10);
+        java.sql.Date sql_string_date = new java.sql.Date(parsed.getTime());
+        txt_next_service.setDate(sql_string_date);
+          
+        String add11 = rs.getString("Next_Mot");
+        SimpleDateFormat format2 = new SimpleDateFormat("dd-MM-yyyy");
+        Date parsed2 = format2.parse(add11);
+        java.sql.Date sql_string_date2 = new java.sql.Date(parsed2.getTime());
+        txt_next_mot.setDate(sql_string_date2);
+        
+        String add12 = rs.getString("Birthday");
+        SimpleDateFormat format3 = new SimpleDateFormat("dd-MM-yyyy");
+        Date parsed3 = format.parse(add12);
+        java.sql.Date sql_string_date3 = new java.sql.Date(parsed3.getTime());
+        txt_birthday.setDate(sql_string_date3);
+            
        
+        }
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
        
     }                                                
 
