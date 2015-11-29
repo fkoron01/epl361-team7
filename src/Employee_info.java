@@ -983,7 +983,24 @@ public class Employee_info extends javax.swing.JFrame {
     }                                    
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-       
+       txt_search_car_number.setText("");
+       txt_search_mobile.setText("");
+       txt_search_telephone.setText("");
+       txt_search_name.setText("");
+       txt_search_surname.setText("");        
+        
+       txt_car_number.setText("");
+       txt_name.setText("");
+       txt_surname.setText("");
+       txt_mobile.setText("");
+       txt_telephone.setText("");
+       txt_address.setText("");
+       txt_chassis_number.setText("");
+       txt_code.setText("");
+       txt_description.setText("");
+       txt_next_service.setCalendar(null);
+       txt_next_mot.setCalendar(null);
+       txt_birthday.setCalendar(null);
                  
     }                                        
 
