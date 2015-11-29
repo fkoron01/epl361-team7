@@ -16,7 +16,27 @@ import java.util.*;
 
 public class Add_User_Info extends javax.swing.JFrame {
    
+    Connection conn = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
     
+    
+    /**
+     * Creates new form Add_User_Info
+     */
+    
+    public Add_User_Info() {
+        initComponents();
+        conn = Javaconnect_mysql.ConnecrDB();
+        Update_table();
+    }
+    
+    
+    
+    public void close(){
+        WindowEvent winClosingEvent = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
+        Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winClosingEvent);
+    }
     
     
     /**
