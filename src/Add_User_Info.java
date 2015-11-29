@@ -420,7 +420,45 @@ public class Add_User_Info extends javax.swing.JFrame {
        
        
         
-        
+        try{
+            String Sql = "insert into database (Car_Number,Name,Surname,Mobile,Telephone,Chassis_Number,Next_Service,Next_Mot,Birthday,Address,DEC_Code,DEC_Description) values (?,?,?,?,?,?,?,?,?,?,?,?)";
+                                                                       
+            
+            pst= conn.prepareStatement(Sql);
+            
+            pst.setString(1,txt_car_number.getText());
+            pst.setString(2,txt_name.getText());
+            pst.setString(3,txt_surname.getText());
+            pst.setString(4,txt_mobile.getText());
+            pst.setString(5,txt_telephone.getText());
+            pst.setString(6,txt_chassis_number.getText());
+            
+           
+            
+            pst.setString(7,((JTextField)txt_next_service.getDateEditor().getUiComponent()).getText());
+            pst.setString(8,((JTextField)txt_next_mot.getDateEditor().getUiComponent()).getText());   
+            pst.setString(9,((JTextField)txt_date_of_birth.getDateEditor().getUiComponent()).getText());   
+          
+            pst.setString(10,txt_address.getText());
+            pst.setString(11,txt_code.getText());
+            pst.setString(12,txt_description.getText());
+            
+            
+            SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+            String string_next_service = format.format(txt_next_service.getDate());
+            String string_next_mot = format.format(txt_next_mot.getDate());
+            String string_birthdate = format.format(txt_date_of_birth.getDate());
+            
+           
+            pst.execute();
+             Update_table();
+            JOptionPane.showMessageDialog(null, "Saved");
+               close();
+            
+        }
+        catch(Exception e){
+            
+        }
         
         
         
