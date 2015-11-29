@@ -38,6 +38,26 @@ public class Add_User_Info extends javax.swing.JFrame {
         Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winClosingEvent);
     }
     
+    private void Update_table(){
+        try{
+        String sql = "select * from database";
+        pst = conn.prepareStatement(sql);
+        rs=pst.executeQuery();
+        
+      
+        }
+        catch(Exception e){
+         JOptionPane.showMessageDialog(null, e);
+        }finally{
+            try{
+                rs.close();
+                pst.close();
+            }
+        catch(Exception e){
+                
+                }
+        }
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.
