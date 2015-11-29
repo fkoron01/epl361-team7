@@ -666,7 +666,40 @@ public class Employee_info extends javax.swing.JFrame {
     }                                        
 
     private void cmd_deleteActionPerformed(java.awt.event.ActionEvent evt) {                                           
+       String sql = "delete from database where Car_Number=?";
+
+        try{
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, txt_search_car_number.getText());
+            pst.execute();
+            Update_table();
+            
+       txt_search_car_number.setText("");
+       txt_search_mobile.setText("");
+       txt_search_telephone.setText("");
+       txt_search_name.setText("");
+       txt_search_surname.setText("");        
+        
+       txt_car_number.setText("");
+       txt_name.setText("");
+       txt_surname.setText("");
+       txt_mobile.setText("");
+       txt_telephone.setText("");
+       txt_address.setText("");
+       txt_chassis_number.setText("");
+       txt_code.setText("");
+       txt_description.setText("");
+       txt_next_service.setCalendar(null);
+       txt_next_mot.setCalendar(null);
+       txt_birthday.setCalendar(null);  
        
+            JOptionPane.showMessageDialog(null,"Deleted");
+
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null,e);
+        }
+        Update_table();
         
         
         
