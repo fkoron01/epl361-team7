@@ -657,7 +657,8 @@ public class Employee_info extends javax.swing.JFrame {
     }                                             
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-       
+       Add_User_Info s = new Add_User_Info();
+        s.setVisible(true);
       
         
         
