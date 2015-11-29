@@ -1005,7 +1005,39 @@ public class Employee_info extends javax.swing.JFrame {
     }                                        
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+       try{
+           
+            
+            String value1 = txt_car_number.getText();
+            String value2 = txt_name.getText();
+            String value3 = txt_surname.getText();
+             String value4 = txt_mobile.getText();
+            String value5 = txt_telephone.getText();
+            String value6 = txt_address.getText();
+             String value7 = txt_chassis_number.getText();
+            String value8 = txt_code.getText();
+            String value9 = txt_description.getText();
+            
+           
+            SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+            String string_next_service = format.format(txt_next_service.getDate());
+            String string_next_mot = format.format(txt_next_mot.getDate());
+            String string_birthdate = format.format(txt_birthday.getDate());
+            
+            
        
+
+            String sql = "update database set Car_Number= '"+value1+"', Name='"+value2+"', Surname='"+value3+"', Mobile='"+value4+"', Telephone='"+value5+"',Address='"+value6+"',Chassis_Number='"+value7+"',DEC_Code='"+value8+"',DEC_Description='"+value9+"',Birthday='"+string_birthdate+"',Next_Service='"+string_next_service+"',Next_Mot='"+string_next_mot+"'  where Car_Number= '"+value1+"' ";
+           
+            pst = conn.prepareStatement(sql);
+            pst.execute();
+            Update_table();
+            JOptionPane.showMessageDialog(null, "Updated");
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+        Update_table();
     }                                        
 
     /**
